@@ -1,0 +1,27 @@
+---
+import ExperienciaItem from '../components/ExperienciaItem.astro'
+
+const EXPERIENCIA = [
+    {
+        "date": "Mayo 2023",
+        "title": "Desarrollo Móvil",
+        "description": "En el desarrollo de una aplicación móvil, trabajé en un proyecto para una aplicación de podcast para una empresa de multimedios. Utilicé React Native para obtener una aplicación multiplataforma, creando una interfaz intuitiva que permitía a los usuarios encontrar y reproducir sus programas favoritos. Realicé pruebas exhaustivas para asegurar la compatibilidad con diferentes versiones de sistemas operativos y dispositivos, garantizando una experiencia de usuario fluida y sin errores."
+    },
+    {
+        "date": "Diciembre 2023",
+        "title": "Desarrollo para Desktop",
+        "description": "En el desarrollo de una aplicación de escritorio, trabajé en un software de gestión de un inventario o punto de venta. Utilicé Java y el entorno de desarrollo Apache NetBeans para crear una interfaz de usuario funcional. La aplicación permitía gestionar productos, asignar recursos y generar informes detallados sobre los movimientos realizados en cada venta."
+    },
+]
+---
+
+<ol class="relative border-s border-gray-200">     
+    {
+        EXPERIENCIA.map((experiencia) =>(
+        <li class="mb-10 ms-4">
+            <ExperienciaItem {... experiencia} />
+        </li>
+        ))
+    }             
+    
+</ol>

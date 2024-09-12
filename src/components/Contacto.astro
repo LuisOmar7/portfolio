@@ -1,0 +1,53 @@
+---
+import CopyIcon from "./iconos/CopyIcon.astro";
+import CorreoIcon from "./iconos/CorreoIcon.astro"
+---
+
+<div class="flex gap-2">
+    <input type="text" disabled class="bg-slate-400/10 w-full py-1.5 px-3 rounded-lg grid place-items-center text-slate-500" value="Luis_omar_77@hotmail.com">
+    <div class="flex gap-2">
+        <div class="relative group/tooltip">
+            <a href="mailto:Luis_omar_77@Hotmail.com" target="_blank" rel="noreferrer" class="flex bg-indigo-400/60 hover:bg-opacity-80 hover:dark:bg-opacity-90 text-indigo-200 py-2.5 px-3 rounded-lg">
+                <div class="text-sm">
+                    <CorreoIcon/>
+                </div>
+            </a>
+            <span class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-gray-200 bg-gray-800 before:content-[''] before:absolute before:bg-gray-800 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
+                Envíame un correo
+            </span>
+        </div>
+
+        <div class="relative group/tooltip">
+            <button id="copy-btn" class="flex bg-indigo-400/60 hover:bg-opacity-80 hover:dark:bg-opacity-90 text-indigo-200 py-2.5 px-3 rounded-lg">
+                <div class="text-sm">
+                    <CopyIcon/>
+                </div>
+            </button>
+            <span id="copy-tooltip" class="absolute pointer-events-none transition-all opacity-0 z-20 bottom-full -translate-y-0 py-1 px-1.5 text-xs left-1/2 -translate-x-1/2 rounded-md whitespace-nowrap text-gray-200 bg-gray-800 before:content-[''] before:absolute before:bg-gray-800 before:rounded-sm before:w-2.5 before:rotate-45 before:h-2.5 before:-bottom-1 before:-z-10 before:left-1/2 before:-translate-x-1/2 before:dark:bg-white before:dark:gray-800 group-hover/tooltip:opacity-100 group-hover/tooltip:-translate-y-3">
+                Copiar correo
+            </span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    const copyBtn = document.getElementById('copy-btn'); 
+    const emailInput = document.querySelector('input[type="text"]') as HTMLInputElement;
+    const tooltip = document.getElementById('copy-tooltip');
+    
+    if (copyBtn && emailInput && tooltip) {
+        copyBtn.addEventListener('click', () => {
+            const texto = emailInput.value; 
+            navigator.clipboard.writeText(texto).then(() => {
+                console.log('Texto copiado al portapapeles');
+                tooltip.textContent = 'Copiado';
+                setTimeout(() => {
+                    tooltip.textContent = 'Copiar correo';
+                }, 2000); // Cambia el texto de vuelta después de 2 segundos
+            }).catch(err => {
+                console.error('Error al copiar: ', err);
+            });
+        });
+    }
+</script>

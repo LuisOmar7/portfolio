@@ -1,0 +1,89 @@
+---
+import ReactIcon from "./iconos/tags/ReactIcon.astro";
+import ExpoIcon from './iconos/tags/ExpoIcon.astro';
+import FirebaseIcon from "./iconos/tags/FirebaseIcon.astro";
+import PythonIcon from "./iconos/tags/PythonIcon.astro";
+import DjangoIcon from "./iconos/tags/DjangoIcon.astro";
+import JavaIcon from './iconos/tags/JavaIcon.astro';
+import MysqlIcon from './iconos/tags/MysqlIcon.astro';
+
+const TAGS = {
+  React: {
+    name: 'React Native',
+    icon: ReactIcon,
+  },
+  Expo: {
+    name: 'Expo',
+    icon: ExpoIcon,
+  },
+  Firebase: {
+    name: 'Firebase',
+    icon: FirebaseIcon, 
+  },
+  Python: {
+    name: 'Python',
+    icon: PythonIcon, 
+  },
+  Django: {
+    name: 'Django',
+    icon: DjangoIcon, 
+  },
+  Java: {
+    name: 'Java',
+    icon: JavaIcon, 
+  },
+  Mysql: {
+    name: 'MySQL',
+    icon: MysqlIcon, 
+  },
+};
+
+const PROYECTOS = [
+  {
+    title: 'Aplicación Móvil De Podcast Para La 91.5 FM',
+    description: 'Desarrollo de una aplicación móvil para podcast 91.5 FM, nace para fortalecer su principal fuente de actividades dentro de la empresa GMM, “la transmisión de programas de radio”.',
+    image: '/public/proyectos/Radio.webp',
+    tags: [TAGS.Expo, TAGS.React, TAGS.Firebase],
+  },
+  {
+    title: 'Punto De Venta',
+    description: 'El proyecto implico el desarrollo e implementación de un sistema de punto de venta para optimizar las operaciones de venta en una tienda minorista.',
+    image: '/public/proyectos/Pventa.webp',
+    tags: [TAGS.Java, TAGS.Mysql],
+  },
+  {
+    title: 'Aprende Jugando',
+    description: 'El proyecto consiste en el desarrollo de una aplicación web destinada al control y gestión de una tienda de juguetes didácticos.',
+    image: '/public/proyectos/AprendeJ.webp',
+    tags: [TAGS.Django, TAGS.Python],
+  },
+];
+
+---
+
+{PROYECTOS.map(({ title, description, image, tags }) => (
+  <div class="block rounded-lg p-4 shadow-sm shadow-indigo-200/30 border border-gray-600 transition transform hover:-translate-y-2 hover:shadow-lg hover:border-indigo-400 ">
+    <img class="h-68 w-full rounded-md object-cover" src={image} alt="Captura del proyecto" />
+    <div class="mt-2">
+      <dl>
+        <div>
+          <dd class="text-sm pt-1 text-indigo-400/90">{title}</dd>
+        </div>
+        <div>
+          <dd class="font-medium pt-1 text-gray-400 text-pretty">{description}</dd>
+        </div>
+      </dl>
+      <div class="mt-4 flex items-center gap-8 text-xs">
+        <div class="flex flex-nowrap sm:inline-flex sm:shrink-0 items-center sm:gap-2">
+          {tags.map(tag => (
+              <tag.icon class="size-5 mr-2 md:mr-0"/>
+
+              <div class="flex items-center mt-1.5 sm:mt-0 mr-2">
+                <p class="text-gray-500">{tag.name}</p>
+              </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+))}

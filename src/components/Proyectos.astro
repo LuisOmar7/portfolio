@@ -6,6 +6,9 @@ import PythonIcon from "./iconos/tags/PythonIcon.astro";
 import DjangoIcon from "./iconos/tags/DjangoIcon.astro";
 import JavaIcon from './iconos/tags/JavaIcon.astro';
 import MysqlIcon from './iconos/tags/MysqlIcon.astro';
+import JavaScriptIcon from "./iconos/tags/JavaScriptIcon.astro";
+import HtmlIcon from "./iconos/tags/HtmlIcon.astro";
+import TailwindIcon from "./iconos/tags/TailwindIcon.astro";
 
 const TAGS = {
   React: {
@@ -36,6 +39,18 @@ const TAGS = {
     name: 'MySQL',
     icon: MysqlIcon, 
   },
+  JavaScript: {
+    name: 'JavaScript',
+    icon: JavaScriptIcon,
+  },
+  HTML: {
+    name: 'HTML',
+    icon: HtmlIcon,
+  },
+  Tailiwnd: {
+    name: 'Tailiwnd CSS',
+    icon: TailwindIcon,
+  },
 };
 
 const PROYECTOS = [
@@ -56,6 +71,12 @@ const PROYECTOS = [
     description: 'El proyecto consiste en el desarrollo de una aplicación web destinada al control y gestión de una tienda de juguetes didácticos.',
     image: '/images/AprendeJ.webp',
     tags: [TAGS.Django, TAGS.Python],
+  },
+  {
+    title: 'Susurros Del Bosque PWA',
+    description: 'Proyecto de una Aplicación Web Progresiva(PWA) sobre un videojuego de terror.',
+    image: '/images/SDB.webp',
+    tags: [TAGS.JavaScript, TAGS.HTML, TAGS.Tailiwnd],
   },
 ];
 

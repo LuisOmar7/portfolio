@@ -9,6 +9,8 @@ import MysqlIcon from './iconos/tags/MysqlIcon.astro';
 import JavaScriptIcon from "./iconos/tags/JavaScriptIcon.astro";
 import HtmlIcon from "./iconos/tags/HtmlIcon.astro";
 import TailwindIcon from "./iconos/tags/TailwindIcon.astro";
+import CssIcon from "./iconos/tags/CssIcon.astro";
+import SqliteIcon from "./iconos/tags/SqliteIcon.astro";
 
 const TAGS = {
   React: {
@@ -51,9 +53,23 @@ const TAGS = {
     name: 'Tailiwnd CSS',
     icon: TailwindIcon,
   },
+  Css: {
+    name: 'CSS',
+    icon: CssIcon,
+  },
+  Sqlite: {
+    name: 'SQLite',
+    icon: SqliteIcon,
+  },
 };
 
 const PROYECTOS = [
+  {
+    title: 'Sistema De Gestión De Contenidos',
+    description: 'Desarrollo de un sistema de gestión de contenidos para la Coordinación de la Policía de Investigación de la Fiscalía General del Estado de Michoacán, el cual permite registrar, almacenar y actualizar información en tiempo real.',
+    image: '/images/CMS.webp',
+    tags: [TAGS.Django, TAGS.Python,  TAGS.Sqlite, TAGS.Css],
+  },
   {
     title: 'Aplicación Móvil De Podcast Para La 91.5 FM',
     description: 'Desarrollo de una aplicación móvil para podcast 91.5 FM, nace para fortalecer su principal fuente de actividades dentro de la empresa GMM, “la transmisión de programas de radio”.',
@@ -70,7 +86,7 @@ const PROYECTOS = [
     title: 'Aprende Jugando',
     description: 'El proyecto consiste en el desarrollo de una aplicación web destinada al control y gestión de una tienda de juguetes didácticos.',
     image: '/images/AprendeJ.webp',
-    tags: [TAGS.Django, TAGS.Python],
+    tags: [TAGS.Django, TAGS.Python, TAGS.Mysql, TAGS.Css],
   },
   {
     title: 'Susurros Del Bosque PWA',
